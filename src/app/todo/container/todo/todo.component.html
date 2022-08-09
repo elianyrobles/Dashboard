@@ -1,0 +1,3 @@
+<div *ngIf="user">{{ user | async | json }}</div>
+<button (click)="httpRequest()" mat-raised-button color="primary">Get User</button>
+
