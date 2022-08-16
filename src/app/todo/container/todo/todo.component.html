@@ -1,3 +1,31 @@
-<div *ngIf="user">{{ user | async | json }}</div>
-<button (click)="httpRequest()" mat-raised-button color="primary">Get User</button>
+
+<mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>Get a user - NgRx</mat-card-title>
+     </mat-card-title-group>
+    <mat-card-content>
+      {{ user$ | async | json }}
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="getUser()" mat-raised-button color="primary">Get User</button>
+    </mat-card-actions>
+</mat-card>
+ 
+<mat-card class="example-card">
+  <mat-card-title-group>
+    <mat-card-title>Get a user by ID - NgRx</mat-card-title>
+   </mat-card-title-group>
+  <mat-card-content>
+    {{ userById$ | async | json }}
+  </mat-card-content>
+  <mat-card-actions>
+    <button (click)="getUserById()" mat-raised-button color="primary">Get User by ID</button>
+  </mat-card-actions>
+</mat-card>
+
+
+<div>
+  <h1>Bonus: Debug the selector below</h1>
+  <span>UserTitle Selector: {{ userTitle$ }}</span>
+</div>
 

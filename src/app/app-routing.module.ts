@@ -6,6 +6,12 @@ const routes: Routes = [
     path: 'todo',
     loadChildren: () => import('./todo/todo.module').then(m => m.TodoModule)
   },
+
+  {
+    path: 'album',
+    loadChildren: () => import('./album/album.module').then(m => m.AlbumModule)
+  },
+
 ];
 
 @NgModule({

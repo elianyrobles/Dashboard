@@ -14,4 +14,9 @@ export class UserService {
     const url = 'https://jsonplaceholder.typicode.com/todos/1';
     return this.http.get<User>(url);
   }
+
+  getUserById(id: number): Observable<User> {
+    const url = 'https://jsonplaceholder.typicode.com/todos/' + id;
+    return this.http.get<User>(url);
+  }
 }
