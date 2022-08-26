@@ -10,10 +10,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { toDoReducer } from './todo/store/todo.reducer';
-import { ToDoEffects } from './todo/store/todo.effects';
-import { AlbumEffects } from './album/store/album.effects';
-import { albumReducer } from './album/store/album.reducer';
 
  
 @NgModule({

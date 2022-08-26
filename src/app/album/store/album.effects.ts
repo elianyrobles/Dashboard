@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { AlbumService } from '../services/album.service';
 import { getAlbumById, getAlbumByIdSuccess, getAlbumByIdFailure} from './album.actions';
-import { AlbumState } from '../models/album';
+
 
 @Injectable()
 export class AlbumEffects {

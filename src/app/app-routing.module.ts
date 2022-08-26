@@ -12,6 +12,24 @@ const routes: Routes = [
     loadChildren: () => import('./album/album.module').then(m => m.AlbumModule)
   },
 
+  {
+    path: 'users',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  
+  {
+    path: 'posts',
+    loadChildren: () => import('./posts/posts.module').then(m => m.PostsModule)
+  },
+
+  {
+    path: 'photos',
+    loadChildren: () => import('./photos/photos.module').then(m => m.PhotosModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  }
 ];
 
 @NgModule({
@@ -19,3 +37,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+

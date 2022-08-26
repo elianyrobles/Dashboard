@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>Get an post by ID</mat-card-title>
+      <mat-card-subtitle>NgRx</mat-card-subtitle>
+    </mat-card-title-group>
+    <mat-card-content>
+      <div *ngIf="postByID$">
+        <div *ngIf="(postByID$ | async)?.userId">
+          UserID: {{ (postByID$ | async)?.userId }}
+        </div>
+        <div *ngIf="(postByID$ | async)?.title">
+          Title: {{ (postByID$ | async)?.title }}
+        </div>
+        <div *ngIf="(postByID$ | async)?.body">
+          Body: {{ (postByID$ | async)?.body }}
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter the post ID</mat-label>
+          <input matInput placeholder="1" [formControl]="postId" required>
+          <mat-error *ngIf="postId.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <button (click)="getPostById()" mat-raised-button color="primary">Get post by Id</button>
+    </mat-card-actions>
+  </mat-card>
+  
+  
