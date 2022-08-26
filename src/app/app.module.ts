@@ -5,17 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { ButtonsComponent } from './buttons/buttons.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
  
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonsComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrument({
       maxAge: 25,
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig, 'login'),
+    AngularFireAuthModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
