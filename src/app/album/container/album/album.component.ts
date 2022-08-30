@@ -24,6 +24,8 @@ export class AlbumComponent {
     this.store.dispatch(getAlbumById(idObject));
   }
 
+  
+
   getErrorMessage() {
     return 'You must enter a value';
   }
