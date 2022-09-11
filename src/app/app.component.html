@@ -1,36 +1,38 @@
+
 <mat-toolbar>
+  <div *ngIf="authService.isLoggedIn">
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button 
-    mat-menu-item 
+    mat-menu-item
+    (click)="logout()"
     aria-label="To do RouterLink">
-      <a routerLink="/logout">To do</a>>
       <mat-icon>logout</mat-icon>
       <span>Logout</span>
     </button>
   </mat-menu>
-  <button  aria-label="To do RouterLink">
+  </div>
+  <button mat-button aria-label="To do RouterLink">
     <a routerLink="/todo">To do</a>
   </button>
-  <button  aria-label="album RouterLink">
+  <button mat-button aria-label="album RouterLink">
     <a routerLink="/album">Album</a>
   </button>
-  <button  aria-label="users RouterLink">
+  <button mat-button aria-label="users RouterLink">
     <a routerLink="/users">Users </a>
   </button>
-  <button  aria-label="posts RouterLink">
+  <button mat-button aria-label="posts RouterLink">
     <a routerLink="/posts">Posts </a>
   </button>
-  <button  aria-label="photos RouterLink">
+  <button mat-button aria-label="photos RouterLink">
     <a routerLink="/photos">Photos</a>
+  </button>
+  <button mat-button aria-label="stepper RouterLink">
+    <a routerLink="/stepper">Stepper</a>
   </button>
 
 </mat-toolbar>
-<div class="main-div">
-</div>
-
-
 
 <router-outlet></router-outlet>

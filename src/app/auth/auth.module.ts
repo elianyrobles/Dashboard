@@ -8,6 +8,10 @@ import { VerifyEmailComponent } from './containers/verify-email/verify-email.com
 import { AuthService } from './services/auth.service';
 import { MaterialModule } from '../material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthReducer } from './store/auth.reducer';
+import { AuthEffects } from './store/auth.effects';
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AuthRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forFeature('auth', AuthReducer),
+    EffectsModule.forFeature([AuthEffects])
   ],
   providers: [AuthService]
 })

@@ -1,3 +1,29 @@
-.example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+@mixin center-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  @include center-content();
+}
+
+.card-actions {
+  @include center-content();
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: .5fr 1fr .5fr;
+}
+
+.container-item {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.header {
+  justify-content: center;
+}

@@ -7,12 +7,14 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData: any; // Save logged in user data
+  user: User;
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -34,9 +36,10 @@ export class AuthService {
   }
   // Sign in with email/password
   SignIn(email: string, password: string) {
-    return this.afAuth
+    this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        this.user = result.user;
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
@@ -47,6 +50,8 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
+
+    return of(this.userData);   
   }
   // Sign up with email/password
   SignUp(email: string, password: string) {
@@ -84,7 +89,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    
+
     return user !== null && user.emailVerified !== false ? true : false;
   }
   // Sign in with Google
@@ -112,12 +117,11 @@ export class AuthService {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
-    
+
     const userData: User = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
 
@@ -129,7 +133,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['/auth/sign-in']);
     });
   }
 }
