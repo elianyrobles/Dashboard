@@ -1,0 +1,25 @@
+.stepper-card {
+    width: fit-content;
+
+    &__image {
+        width: 215px;
+    }
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    
+
+    &__label {
+        border: 1px solid #000;
+        padding: 3px;
+        padding-right: 8px;
+        padding-left: 8px;
+        margin-right: 10px;
+    }
+
+    &__size {
+
+    }
+}
