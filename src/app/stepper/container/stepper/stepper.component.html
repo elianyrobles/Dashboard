@@ -1,1 +1,5 @@
-<app-stepper-card [size]="size" [label]="label"></app-stepper-card>
+<div class="container">
+    <div class="card-container">
+        <app-stepper-card (selected)="doSomething($event)"class="card-container__item" *ngFor="let option of options" [size]="option.size" [label]="option.label"></app-stepper-card>
+    </div>
+</div>
