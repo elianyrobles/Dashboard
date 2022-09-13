@@ -1,15 +1,22 @@
 .stepper-card {
-    width: fit-content;
-
+    margin: 15px;
+    
     &__image {
         width: 215px;
+        
     }
 }
 
-.options {
+.image-container {
     display: flex;
-    align-items: center;
+    justify-content: center;
     
+
+
+}
+.options {
+    display: flex; //display items on the same line
+    align-items: center;
 
     &__label {
         border: 1px solid #000;

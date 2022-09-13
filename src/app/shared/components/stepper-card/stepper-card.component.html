@@ -1,9 +1,9 @@
-<mat-card class="stepper-card">
-        <div>
-            <img class="stepper-card__image" src="../../../../assets/images/nft-hoodie.png" alt="hoodie">
-        </div>
-        <div class="options">
-            <div class="options__label">{{ label }}</div>
-            <div class="options__size">{{ size }}</div>
-        </div>
+<mat-card (click)="selected" class="stepper-card">
+    <div class="image-container">
+        <img class="stepper-card__image" src="../../../../assets/images/nft-hoodie.png" alt="hoodie">
+    </div>
+    <div class="options">
+        <div class="options__label">{{ label }}</div>
+        <div class="options__size">{{ size }}</div>
+    </div>
 </mat-card>
