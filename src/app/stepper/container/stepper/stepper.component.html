@@ -4,8 +4,15 @@
     </div>
     <div class="container__cards">
         <div class="card-container">
-            <app-stepper-card (selected)="doSomething($event)" class="card-container__item"
-                *ngFor="let option of options" [size]="option.size" [label]="option.label"></app-stepper-card>
+            <app-stepper-card
+                class="card-container__item"
+                *ngFor="let option of options"
+                (selected)="doSomething($event)"
+                [size]="option.size"
+                [label]="option.label"
+                [imagePath]="option.imagePath"
+                >
+            </app-stepper-card>
         </div>
     </div>
 </div>

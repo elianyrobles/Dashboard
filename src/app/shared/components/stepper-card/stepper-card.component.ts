@@ -1,10 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { MaterialModule } from 'src/app/material/material.module';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
-  imports: [MaterialModule, CommonModule],
   selector: 'app-stepper-card',
   templateUrl: './stepper-card.component.html',
   styleUrls: ['./stepper-card.component.scss']
@@ -13,9 +9,9 @@ import { CommonModule } from '@angular/common';
 export class StepperCardComponent implements OnInit {
 @Input() size: string;
 @Input() label: string; 
+@Input() imagePath: string;
 @Output() selected = new EventEmitter<string>();
 
- 
 constructor() { }
 
   ngOnInit(): void {
