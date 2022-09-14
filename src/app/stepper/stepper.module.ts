@@ -4,18 +4,19 @@ import { StepperRoutingModule } from './stepper-routing.module';
 import { StepperHeaderComponent } from './presentational/stepper-header/stepper-header.component';
 import { StepperComponent } from './container/stepper/stepper.component';
 import { SharedModule } from '../shared/shared.module';
-import { StepperPageComponent } from './container/stepper-page/stepper-page.component';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
     StepperComponent,
     StepperHeaderComponent,
-    StepperPageComponent
+   
   ],
   imports: [
     CommonModule,
     StepperRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialModule,
   ]
 })
 export class StepperModule { }
