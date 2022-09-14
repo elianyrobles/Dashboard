@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthGuard } from './auth/shared/guard/auth.guard';
 import { StepperModule } from './stepper/stepper.module';
+import { SharedModule } from './shared/shared.module';
  
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { StepperModule } from './stepper/stepper.module';
     HttpClientModule,
     EffectsModule,
     StepperModule,
+    SharedModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot(),
     StoreDevtoolsModule.instrument({

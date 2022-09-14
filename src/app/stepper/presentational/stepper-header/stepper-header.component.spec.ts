@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StepperChildComponent } from './stepper-child.component';
+import { StepperHeaderComponent } from './stepper-header.component';
 
-describe('StepperChildComponent', () => {
-  let component: StepperChildComponent;
-  let fixture: ComponentFixture<StepperChildComponent>;
+describe('StepperHeaderComponent', () => {
+  let component: StepperHeaderComponent;
+  let fixture: ComponentFixture<StepperHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StepperChildComponent ]
+      declarations: [ StepperHeaderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StepperChildComponent);
+    fixture = TestBed.createComponent(StepperHeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
