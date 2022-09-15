@@ -15,6 +15,7 @@
                         [label]="option.label"
                         [imagePath]="option.image"
                         [selectedSize]="size$ | async"
+                        (click)="goForward(stepper)"
                         >
                     </app-stepper-card>
                 </div>

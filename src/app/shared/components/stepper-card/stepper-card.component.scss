@@ -1,19 +1,31 @@
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.selected {
+    background-color: #ededed;
+    animation: blinker 1s linear;
+}
+
 .stepper-card {
     margin: 15px;
-    
+
     &__image {
         width: 215px;
-        
+
     }
 }
 
 .image-container {
     display: flex;
     justify-content: center;
-    
+
 
 
 }
+
 .options {
     display: flex; //display items on the same line
     align-items: center;
@@ -26,8 +38,4 @@
         margin-right: 10px;
     }
 
-}
-
-.selected {
-    background-color: #ededed;
 }

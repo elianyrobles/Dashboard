@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { StepperService } from '../../services/stepper.service';
@@ -6,6 +6,7 @@ import { SizeOption } from '../../models';
 import { Store } from '@ngrx/store';
 import { saveSize } from '../../store/stepper.actions';
 import { getSize } from '../../store/stepper.selector';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-stepper',
@@ -25,13 +26,18 @@ export class StepperComponent {
     private _formBuilder: FormBuilder,
     private stepperSvc: StepperService,
     private store: Store
-    ) {
-      this.sizeOptions$ = this.stepperSvc.getAllSizes();
-    }
-
-  saveSize(event: string) {
-    this.store.dispatch(saveSize({ size: event}));
+  ) {
+    this.sizeOptions$ = this.stepperSvc.getAllSizes();
   }
 
+  saveSize(event: string) {
+    this.store.dispatch(saveSize({ size: event }));
+  }
+
+  goForward(stepper: MatStepper) {
+    setTimeout(function () {
+      stepper.next();
+    }, 1000);
+  }
 
 }
