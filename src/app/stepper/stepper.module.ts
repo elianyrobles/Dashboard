@@ -5,11 +5,14 @@ import { StepperHeaderComponent } from './presentational/stepper-header/stepper-
 import { StepperComponent } from './container/stepper/stepper.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CrudSizeComponent } from './container/crud-size/crud-size.component';
 
 @NgModule({
   declarations: [
     StepperComponent,
     StepperHeaderComponent,
+    CrudSizeComponent,
    
   ],
   imports: [
@@ -17,6 +20,8 @@ import { MaterialModule } from '../material/material.module';
     StepperRoutingModule,
     SharedModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class StepperModule { }

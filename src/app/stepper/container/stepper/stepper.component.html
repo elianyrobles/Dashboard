@@ -1,5 +1,6 @@
 <mat-stepper orientation="horizontal" #stepper>
     <mat-step [stepControl]="firstFormGroup">
+        <ng-template matStepLabel>Size</ng-template>
         <div class="container">
             <div class="container__header">
                 <app-stepper-header [title]="title" [subtitle]="subtitle"></app-stepper-header>
@@ -8,16 +9,20 @@
                 <div class="card-container">
                     <app-stepper-card
                         class="card-container__item"
-                        *ngFor="let option of options"
+                        *ngFor="let option of sizeOptions$ | async"
                         (selected)="doSomething($event)"
                         [size]="option.size"
                         [label]="option.label"
-                        [imagePath]="option.imagePath"
+                        [imagePath]="option.image"
                         >
                     </app-stepper-card>
                 </div>
             </div>
         </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Layout</ng-template>
+        
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>

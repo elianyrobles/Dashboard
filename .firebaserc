@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auth-50581": {
+      "hosting": {
+        "theme": [
+          "auth-50581"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auth-50581"
+  }
+}

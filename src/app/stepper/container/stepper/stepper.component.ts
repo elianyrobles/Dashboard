@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { StepperService } from '../../services/stepper.service';
+import { Size } from '../../models';
 
 @Component({
   selector: 'app-stepper',
@@ -12,56 +15,17 @@ export class StepperComponent {
   });
   title: string = 'First off. What size hoodie do you want to order? This question is required.*';
   subtitle: string = 'Below are the sizes we provide.';
+  sizeOptions$: Observable<Size[]>;
 
-
-  constructor(private _formBuilder: FormBuilder) { }
-
-
-  options = [
-    {
-      label: 'A',
-      size: 'XS',
-      imagePath: "../../../../assets/images/nft-hoodie.png"
-    },
-    {
-      label: 'B',
-      size: 'S',
-      imagePath: "../../../../assets/images/nft2.png"
-    },
-    {
-      label: 'C',
-      size: 'M',
-      imagePath: "../../../../assets/images/nft3.png"
-    },
-    {
-      label: 'D',
-      size: 'L',
-      imagePath: "../../../../assets/images/nft4.png"
-    },
-    {
-      label: 'E',
-      size: 'XL',
-      imagePath: "../../../../assets/images/nft5.png"
-    },
-    {
-      label: 'F',
-      size: '2XL',
-      imagePath: "../../../../assets/images/nft6.png"
-    },
-    {
-      label: 'G',
-      size: '3XL',
-      imagePath: "../../../../assets/images/nft7.png"
-    },
-
-  ]
-
-  
-
+  constructor(
+    private _formBuilder: FormBuilder,
+    private stepperSvc: StepperService
+    ) {
+      this.sizeOptions$ = this.stepperSvc.getAllSizes();
+    }
 
   doSomething(event: string) {
     console.log('doSomehting event', event);
-
   }
 
 }

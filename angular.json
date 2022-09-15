@@ -28,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-            "src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -99,6 +99,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "theme:build:production",
+            "firebaseProject": "auth-50581",
+            "firebaseHostingSite": "auth-50581"
           }
         }
       }

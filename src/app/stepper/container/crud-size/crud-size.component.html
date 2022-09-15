@@ -1,0 +1,6 @@
+<button mat-raised-button (click)="createNewSize()">Create new size</button>
+<button mat-raised-button (click)="getNewSize('7')">Get new size</button>
+<button mat-raised-button (click)="updateNewSize('7')">Update new size</button>
+<button mat-raised-button (click)="deleteNewSize('7')">Delete new size</button>
+
+{{ newSize | async | json}}
