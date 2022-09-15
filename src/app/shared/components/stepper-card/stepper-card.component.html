@@ -1,4 +1,4 @@
-<mat-card (click)="emitSelection(size)" class="stepper-card">
+<mat-card (click)="emitSelection(size)" [ngClass]="selectedSize == size ? 'selected' : ''" class="stepper-card">
     <div class="image-container">
         <img class="stepper-card__image" src="{{ imagePath }}" alt="hoodie images">
     </div>

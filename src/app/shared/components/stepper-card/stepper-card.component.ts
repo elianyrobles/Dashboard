@@ -10,6 +10,7 @@ export class StepperCardComponent implements OnInit {
 @Input() size: string;
 @Input() label: string; 
 @Input() imagePath: string;
+@Input() selectedSize: string;
 @Output() selected = new EventEmitter<string>();
 
 constructor() { }
@@ -20,5 +21,5 @@ constructor() { }
 emitSelection(size: string) {
   this.selected.emit(size);
 }
-  
+
 }

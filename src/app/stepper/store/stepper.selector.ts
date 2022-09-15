@@ -1,7 +1,7 @@
 import { createSelector } from "@ngrx/store";
-import { Order } from "../models";
+import { StepperState } from "../models";
 
 
-export const getOrder = (state: Order) => state;
+export const getStepperState = (state: StepperState) => state;
 
-export const getSize = createSelector(getOrder, (state: Order) => state.size);
+export const getSize = createSelector(getStepperState, (state: StepperState) => state.stepper.size);

@@ -5,6 +5,7 @@ import { StepperService } from '../../services/stepper.service';
 import { SizeOption } from '../../models';
 import { Store } from '@ngrx/store';
 import { saveSize } from '../../store/stepper.actions';
+import { getSize } from '../../store/stepper.selector';
 
 @Component({
   selector: 'app-stepper',
@@ -18,6 +19,7 @@ export class StepperComponent {
   title: string = 'First off. What size hoodie do you want to order? This question is required.*';
   subtitle: string = 'Below are the sizes we provide.';
   sizeOptions$: Observable<SizeOption[]>;
+  public size$ = this.store.select(getSize)
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -30,5 +32,6 @@ export class StepperComponent {
   saveSize(event: string) {
     this.store.dispatch(saveSize({ size: event}));
   }
+
 
 }
