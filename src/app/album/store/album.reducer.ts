@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Album } from '../models';
+import { Album } from '../models/';
 import * as AlbumActions from './album.actions';
 
 export const initialState: Album = {

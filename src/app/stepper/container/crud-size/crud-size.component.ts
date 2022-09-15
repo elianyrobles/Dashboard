@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StepperService } from '../../services/stepper.service';
-import { Size } from '../../models';
+import { SizeOption } from '../../models';
 
 @Component({
   selector: 'app-crud-size',
@@ -9,7 +9,7 @@ import { Size } from '../../models';
   styleUrls: ['./crud-size.component.scss']
 })
 export class CrudSizeComponent {
-  newSize: Observable<Size>;
+  newSize: Observable<SizeOption>;
 
   constructor(private stepperSvc: StepperService) { }
 

@@ -1,4 +1,4 @@
-export interface Size {
+export interface SizeOption {
     label: string;
     size: string;
     image: string;

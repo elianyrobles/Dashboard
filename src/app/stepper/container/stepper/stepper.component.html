@@ -10,7 +10,7 @@
                     <app-stepper-card
                         class="card-container__item"
                         *ngFor="let option of sizeOptions$ | async"
-                        (selected)="doSomething($event)"
+                        (selected)="saveSize($event)"
                         [size]="option.size"
                         [label]="option.label"
                         [imagePath]="option.image"

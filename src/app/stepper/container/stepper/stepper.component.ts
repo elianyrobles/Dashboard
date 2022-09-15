@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { StepperService } from '../../services/stepper.service';
-import { Size } from '../../models';
+import { SizeOption } from '../../models';
+import { Store } from '@ngrx/store';
+import { saveSize } from '../../store/stepper.actions';
 
 @Component({
   selector: 'app-stepper',
@@ -15,17 +17,18 @@ export class StepperComponent {
   });
   title: string = 'First off. What size hoodie do you want to order? This question is required.*';
   subtitle: string = 'Below are the sizes we provide.';
-  sizeOptions$: Observable<Size[]>;
+  sizeOptions$: Observable<SizeOption[]>;
 
   constructor(
     private _formBuilder: FormBuilder,
-    private stepperSvc: StepperService
+    private stepperSvc: StepperService,
+    private store: Store
     ) {
       this.sizeOptions$ = this.stepperSvc.getAllSizes();
     }
 
-  doSomething(event: string) {
-    console.log('doSomehting event', event);
+  saveSize(event: string) {
+    this.store.dispatch(saveSize({ size: event}));
   }
 
 }
